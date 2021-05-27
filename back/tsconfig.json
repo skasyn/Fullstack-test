@@ -10,7 +10,7 @@
     "baseUrl": "src",
     "paths": {
       "@controllers/*": ["controllers/*"],
-      "@services/*": ["services/*"]
+      "@services/*": ["services/*"],
     }
   },
   "include": [

@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const API_KEY = "eb341f6008f59d506ed4";
+const API_KEY = "465a51a780cf7c917625fb76f91e9289";
 
-const apiKeyParam = `apiKey=${API_KEY}`;
-const baseUrl = "https://free.currconv.com/api/v7";
+const apiKeyParam = `access_key=${API_KEY}`;
+const baseUrl = "http://api.exchangeratesapi.io/v1/";
 
 const routes = {
-  currencies: "/currencies",
+  currencies: "/symbols",
 };
 
 export const getCurrencies = () => axios.get(`${baseUrl}${routes.currencies}?${apiKeyParam}`);

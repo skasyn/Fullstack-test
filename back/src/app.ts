@@ -7,5 +7,6 @@ const app = express();
 
 app.get('/healthcheck', (req, res) => res.status(200));
 app.get('/currencies', currencyController.getAllCurrency);
+app.get('/conversion', currencyController.getConversionRate);
 
 export default app;

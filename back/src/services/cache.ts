@@ -1,8 +1,14 @@
-interface Currencies {
-  [key: string]: string
+interface CurrenciesBody {
+  currencyName: string,
+  currencySymbol?: string;
+  id: string;
 }
 
-const cache = new Map<string, Currencies>();
+interface Currencies {
+  [key: string]: CurrenciesBody;
+}
+
+const cache = new Map<string, Currencies | string>();
 
 export const addToCache = (key: string, value: any) => {
   cache.set(key, value);

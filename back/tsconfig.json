@@ -5,13 +5,12 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "outDir": "dist",
-    "baseUrl": "./src",
     "noImplicitAny": true,
     "moduleResolution": "node",
+    "baseUrl": "src",
     "paths": {
-      "*": [
-          "node_modules/*",
-      ]
+      "@controllers/*": ["controllers/*"],
+      "@services/*": ["services/*"]
     }
   },
   "include": [

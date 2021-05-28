@@ -1,14 +1,19 @@
 import { createContext, Dispatch, ReactNode, useContext, useReducer } from 'react';
+import { CurrenciesBody } from "../types";
 
 const defaultValue = {
   currentResult: 0,
-  fromCurrency: "",
+  fromCurrency: "USD",
   fromValue: 0,
-  toCurrency: "",
-  currentRate: 0
+  toCurrency: "USD",
+  currentRate: 2
 };
 
-type ConvertState = typeof defaultValue;
+type DefaultValues = typeof defaultValue;
+
+interface ConvertState extends DefaultValues {
+  currencies: CurrenciesBody
+}
 
 type Action =
   | { type: 'changeValues', payload: { from: number }}
@@ -34,8 +39,8 @@ const countReducer = (state: ConvertState, action: Action) => {
   }
 };
 
-export const ConvertProvider = ({ children }: {children: ReactNode}) => {
-  const [state, dispatch] = useReducer(countReducer, defaultValue);
+export const ConvertProvider = ({ children, currencies }: {children: ReactNode, currencies: CurrenciesBody }) => {
+  const [state, dispatch] = useReducer(countReducer, { ...defaultValue, currencies });
 
   return (
     <ConvertStateContext.Provider value={state}>
@@ -48,7 +53,7 @@ export const ConvertProvider = ({ children }: {children: ReactNode}) => {
 
 export const useConvertState = () => {
   const stateContext = useContext(ConvertStateContext);
-  if (stateContext === undefined) {
+  if (!stateContext) {
     throw new Error('useConvertState must be used within a ConvertStateProvider');
   }
   return stateContext;
@@ -56,10 +61,10 @@ export const useConvertState = () => {
 
 export const useConvertDispatch = () => {
   const dispatchContext = useContext(ConvertDispatchContext);
-  if (dispatchContext === undefined) {
+  if (!dispatchContext) {
     throw new Error('useConvertState must be used within a ConvertStateProvider');
   }
   return dispatchContext;
 };
 
-export const useConvert = () => [useConvertState(), useConvertDispatch()];
+export const useConvert = (): [ConvertState, Dispatch<Action>] => [useConvertState(), useConvertDispatch()];

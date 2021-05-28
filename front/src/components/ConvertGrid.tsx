@@ -1,5 +1,5 @@
 import { useConvert } from '../context/convert';
-import { Grid, GridItem, Select, NumberInput, NumberInputField, Flex } from '@chakra-ui/react';
+import { Grid, GridItem, Select, NumberInput, NumberInputField } from '@chakra-ui/react';
 import { Result } from '../components/Result';
 import { CurrenciesBody } from '../types';
 
@@ -39,7 +39,6 @@ export const ConvertGrid = ({ currencies }: GridProps) => {
     });
   };
 
-  console.log(currencies);
   return (
     <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(2, 1fr)" gap={4} paddingTop="20px">
       <GridItem>

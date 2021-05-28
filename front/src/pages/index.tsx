@@ -1,56 +1,48 @@
-import {
-  Link as ChakraLink,
-  Text,
-  Code,
-  List,
-  ListIcon,
-  ListItem,
-} from '@chakra-ui/react'
-import { CheckCircleIcon, LinkIcon } from '@chakra-ui/icons'
-
-import { Hero } from '../components/Hero'
-import { Container } from '../components/Container'
-import { Main } from '../components/Main'
-import { DarkModeSwitch } from '../components/DarkModeSwitch'
-import { CTA } from '../components/CTA'
-import { Footer } from '../components/Footer'
+import { Container } from '../components/Container';
+import { ConvertProvider } from '../context/convert';
+import { Grid, GridItem, Select, Stack, Text, Input } from "@chakra-ui/react";
 
 const Index = () => (
-  <Container height="100vh">
-    <Hero />
-    <Main>
+
+  <ConvertProvider>
+    <Container height="100vh">
+    <Stack>
       <Text>
-        Example repository of <Code>Next.js</Code> + <Code>chakra-ui</Code> +{' '}
-        <Code>typescript</Code>.
+      1 dollars
       </Text>
-
-      <List spacing={3} my={0}>
-        <ListItem>
-          <ListIcon as={CheckCircleIcon} color="green.500" />
-          <ChakraLink
-            isExternal
-            href="https://chakra-ui.com"
-            flexGrow={1}
-            mr={2}
-          >
-            Chakra UI <LinkIcon />
-          </ChakraLink>
-        </ListItem>
-        <ListItem>
-          <ListIcon as={CheckCircleIcon} color="green.500" />
-          <ChakraLink isExternal href="https://nextjs.org" flexGrow={1} mr={2}>
-            Next.js <LinkIcon />
-          </ChakraLink>
-        </ListItem>
-      </List>
-    </Main>
-
-    <DarkModeSwitch />
-    <Footer>
-      <Text>Next ❤️ Chakra</Text>
-    </Footer>
-    <CTA />
+      <Text fontSize="3xl">
+        Beaucoup d'argent, genre vraiment
+      </Text>
+      <Text fontSize="sm">
+        { new Date().toString()}
+      </Text>
+      <Grid
+        templateRows="repeat(2, 1fr)"
+        templateColumns="repeat(2, 1fr)"
+        gap={4}
+        paddingTop="20px"
+      >
+        <GridItem>
+          <Input placeholder="Select option" />
+        </GridItem>
+        <GridItem>
+        <Select placeholder="Select option">
+            <option value="option1">Option 2</option>
+          </Select>
+        </GridItem>
+        <GridItem>
+        <Input placeholder="Select option" />
+        </GridItem>
+        <GridItem>
+        <Select placeholder="Select option">
+            <option value="option1">Option 4</option>
+          </Select>
+        </GridItem>
+      </Grid>
+    </Stack>
   </Container>
+  </ConvertProvider>
+
 )
 
 export default Index

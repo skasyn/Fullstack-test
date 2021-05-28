@@ -1,9 +1,9 @@
 export interface Currencies {
-  currencyName: string,
+  currencyName: string;
   currencySymbol?: string;
   id: string;
 }
 
 export interface CurrenciesBody {
-  [key: string]: Currencies
-} 
+  [key: string]: Currencies;
+}

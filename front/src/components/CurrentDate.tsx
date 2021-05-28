@@ -1,16 +1,21 @@
-import { Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { Text } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
 
-const f = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', hour: 'numeric', minute: 'numeric'});
+const f = new Intl.DateTimeFormat('fr-FR', {
+  day: 'numeric',
+  month: 'long',
+  hour: 'numeric',
+  minute: 'numeric',
+});
 
 const getNewDate = () => {
   const t = new Date();
-    
+
   return f.format(t);
 };
 
 export const CurrentDate = () => {
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState('');
 
   useEffect(() => {
     setDate(getNewDate());
@@ -20,8 +25,8 @@ export const CurrentDate = () => {
 
     return () => {
       clearInterval(interval);
-    }
-  }, [])
+    };
+  }, []);
 
-  return <Text fontSize="sm">{date} - Clause de non-responsabilité</Text>
-}
+  return <Text fontSize="sm">{date} - Clause de non-responsabilité</Text>;
+};

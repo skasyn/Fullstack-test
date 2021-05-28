@@ -6,7 +6,7 @@ const defaultValue = {
   fromCurrency: 'USD',
   fromValue: 0,
   toCurrency: 'USD',
-  currentRate: 2,
+  currentRate: 1,
 };
 
 type DefaultValues = typeof defaultValue;

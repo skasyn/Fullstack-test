@@ -10,12 +10,14 @@
   },
   "scripts": {
     "dev": "tsnd --respawn -r tsconfig-paths/register src/server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "prettier": "prettier --write 'src/**/*'"     
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.12",
     "@types/node": "^15.6.1",
+    "prettier": "^2.3.0",
     "ts-node": "^10.0.0",
     "ts-node-dev": "^1.1.6",
     "tsconfig-paths": "^3.9.0",

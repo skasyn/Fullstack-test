@@ -1,6 +1,6 @@
 import express from 'express';
-import cors from "cors";
-import * as currencyController from "@controllers/currency";
+import cors from 'cors';
+import * as currencyController from '@controllers/currency';
 
 export const PORT = 8000;
 
